@@ -1,0 +1,62 @@
+I, [2022-01-10T12:46:42.568105 #68530]  INFO -- : Registered expected interaction GET /token/1235
+D, [2022-01-10T12:46:42.568348 #68530] DEBUG -- : {
+  "description": "GET user token",
+  "providerState": "user token",
+  "request": {
+    "method": "GET",
+    "path": "/token/1235",
+    "headers": {
+      "Accept": "application/json, text/plain, */*"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "token": {
+        "json_class": "Pact::SomethingLike",
+        "contents": "bearer"
+      }
+    }
+  },
+  "metadata": null
+}
+W, [2022-01-10T12:46:42.577605 #68530]  WARN -- : Verifying - actual interactions do not match expected interactions. 
+Missing requests:
+	GET /token/1235
+
+
+I, [2022-01-10T12:46:42.578631 #68530]  INFO -- : Received request GET /token/1235
+W, [2022-01-10T12:46:42.578669 #68530]  WARN -- : Missing requests:
+	GET /token/1235
+
+
+D, [2022-01-10T12:46:42.578753 #68530] DEBUG -- : {
+  "path": "/token/1235",
+  "query": "",
+  "method": "get",
+  "headers": {
+    "Accept": "application/json, text/plain, */*",
+    "User-Agent": "axios/0.19.2",
+    "Host": "localhost:1235",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2022-01-10T12:46:42.579256 #68530]  INFO -- : Found matching response for GET /token/1235
+D, [2022-01-10T12:46:42.579351 #68530] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "token": {
+      "json_class": "Pact::SomethingLike",
+      "contents": "bearer"
+    }
+  }
+}
+I, [2022-01-10T12:46:42.584962 #68530]  INFO -- : Cleared interactions
+I, [2022-01-10T12:46:42.589261 #68530]  INFO -- : Writing pact for token to /Users/laurabennett/2021/TRAINING/pact-online-course/pacts/react-token.json
