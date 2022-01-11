@@ -9,8 +9,8 @@ const get = require('../src/get')
 
 describe('Consumer Test', () => {
 
-    it('OK response', () => {
-        get()
+    it('OK response', async () => {
+        await get()
         .then((response) => {
             //console.log(response)
             expect(response.statusText).to.be.equal('OK ')
@@ -32,7 +32,11 @@ describe('Consumer Test', () => {
 
     }, 30000);
 
-    after(() => provider.finalize());
+    //after(() => provider.finalize());
+
+    after(async () => {
+        await provider.finalize();
+    })
 
 
     beforeEach(() => {
@@ -45,14 +49,18 @@ describe('Consumer Test', () => {
                 headers: { Accept: "application/json, text/plain, */*" }
             },
             willRespondWith: {
-                headers: { "Content-Type": "application/json" },
+                headers: { "content-type": "application/json" },
                 status: 200,
                 body: { "token": string("bearer") }
             }
        })
     })
 
-    afterEach(() => provider.verify());
+    //afterEach(() => provider.verify());
+
+    afterEach(async () => {
+        await provider.verify();
+    })
 
   
 
